@@ -70,7 +70,7 @@ app.get("/read", (req, res) => {
 app.get("/public", (req, res) => {
   fs.readdir(publicFolderPath, (err, items) => {
     if (err) {
-      return res.status(500).send('Failed to read the "public" directory.');
+      return res.status(500).send('Failed to read the "public" directory.', err);
     }
     let html = "<html>";
     for (let item of items) {
